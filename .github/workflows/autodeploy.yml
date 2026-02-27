@@ -1,10 +1,14 @@
 name: Video CloZett Autodeploy MVP
+
 on: [push]
 
 jobs:
-  debug-test:
+  notify-slack:
     runs-on: ubuntu-latest
+
     steps:
       - name: Send Slack Notification
         run: |
-          curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"🚀 Video CloZett 疎通確認成功！\"}" ${{ secrets.SLACK_WEBHOOK_URL }}
+          curl -X POST -H "Content-type: application/json" \
+          --data '{"text": "🚀 Video CloZett 疎通確認成功！"}' \
+          ${{ secrets.SLACK_WEBHOOK_URL }}
