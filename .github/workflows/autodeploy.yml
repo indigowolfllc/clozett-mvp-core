@@ -1,10 +1,11 @@
-name: Video CloZett Autodeploy MVP
+name: Video CloZett MVP Build
 on: [push]
 
 jobs:
-debug-test:
+build-test:
 runs-on: ubuntu-latest
 steps:
-- name: Send Slack Notification
-run: |
-curl -X POST -H 'Content-type: application/json' --data "{"text": "🚀 Video CloZett 疎通確認成功！"}" ${{ secrets.SLACK_WEBHOOK_URL }}
+- name: Checkout
+uses: actions/checkout@v4
+- name: Build Check
+run: echo "Build environment is ready."
