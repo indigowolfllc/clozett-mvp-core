@@ -7,5 +7,6 @@ runs-on: ubuntu-latest
 steps:
 - name: Checkout
 uses: actions/checkout@v4
-- name: Build Check
-run: echo "System logic is working."
+- name: Send Slack
+run: |
+curl -X POST -H 'Content-type: application/json' --data "{"text": "🚀 Video CloZett 疎通成功！\nようやく開通しました。"}" ${{ secrets.SLACK_WEBHOOK_URL }}
