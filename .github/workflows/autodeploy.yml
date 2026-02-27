@@ -9,4 +9,4 @@ steps:
 uses: actions/checkout@v4
 - name: Send Slack
 run: |
-curl -X POST -H 'Content-type: application/json' --data "{"text": "🚀 Video CloZett 疎通成功！\nようやく開通しました。"}" ${{ secrets.SLACK_WEBHOOK_URL }}
+curl -X POST -H 'Content-type: application/json' --data "{"text": "🚀 Video CloZett 疎通成功！\nインデントを修正し、開通しました。"}" ${{ secrets.SLACK_WEBHOOK_URL }}
