@@ -1,14 +1,16 @@
-name: Video CloZett Autodeploy MVP
+name: Debug Slack Secret
 
 on: [push]
 
 jobs:
-  notify-slack:
+  debug:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Send Slack Notification
+      - name: Check if secret exists
         run: |
-          curl -X POST -H "Content-type: application/json" \
-          --data '{"text": "🚀 Video CloZett 疎通確認成功！"}' \
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          if [ -z "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
+            echo "Secret is EMPTY"
+            exit 1
+          else
+            echo "Secret exists"
+          fi
